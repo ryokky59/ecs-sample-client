@@ -11,5 +11,7 @@ RUN apk update && \
   npm install -g npm && \
   npm install -g @vue/cli
 
+RUN npm run build
+
 ENV HOST 0.0.0.0
 EXPOSE 3000

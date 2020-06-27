@@ -1,15 +1,21 @@
 FROM node:12.18.1-alpine
 
-ENV HOME="/app" \
-  LANG=C.UTF-8 \
-  TZ=Asia/Tokyo
+WORKDIR /app
 
-WORKDIR ${HOME}
+COPY package*.json ./
 
-RUN apk update && \
-  apk upgrade && \
-  npm install -g npm && \
-  npm install -g @vue/cli
+RUN npm install --quiet
+
+COPY . .
+
+RUN npm rebuild
+
+RUN npm install vue-cli -g
+
+RUN npm run build
 
 ENV HOST 0.0.0.0
+
 EXPOSE 3000
+
+CMD ["npm", "run", "start"]

@@ -41,8 +41,8 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'http://sample_server:8080',
-    browserBaseURL: 'http://localhost:8080'
+    baseURL: 'https://ryokky59.com/api',
+    browserBaseURL: 'https://ryokky59.com/api'
   },
   /*
    ** Build configuration
